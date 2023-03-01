@@ -6,8 +6,8 @@ workflows:
   sample:
     jobs:
       - build-and-test:
-         context:
-           - pytest07
+          context:
+            - pytest07
 jobs:
   build-and-test:
     docker:
