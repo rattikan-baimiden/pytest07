@@ -29,7 +29,7 @@ def test_post_insert():
     global _id 
     _id = actual_result.json()[0]['id']
     assert actual_result.status_code == 200
-    assert actual_result.json()[0]['course_code'] == expected_result
+    assert actual_result.json()['data'][0]['course_code'] == expected_result
 
 
 def test_get_by_id():
@@ -37,7 +37,7 @@ def test_get_by_id():
     actual_result = client.get(url)
     expected_result = "SWE62-353"
     assert actual_result.status_code == 200
-    assert actual_result.json()['course_code'] == expected_result
+    assert actual_result.json()['data'][0]['course_code'] == expected_result
     
 
 def test_put_x_update():
@@ -54,7 +54,7 @@ def test_put_x_update():
     )
     expected_result = "SWE62-3532"
     assert actual_result.status_code == 200
-    assert actual_result.json()[0]['course_code'] == expected_result
+    assert actual_result.json()['data'][0]['course_code'] == expected_result
 
 def test_delete_by_id():
     url = "/"+_id
